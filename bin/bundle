@@ -19,14 +19,16 @@ m = Module.new do
     ENV.fetch('BUNDLER_VERSION', nil)
   end
 
-  def cli_arg_version
+  def cli_arg_version # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
     return unless invoked_as_script? # don't want to hijack other binstubs
+
     return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
 
     bundler_version = nil
     update_index = nil
     ARGV.each_with_index do |a, i|
       bundler_version = a if update_index && update_index.succ == i && a =~ Gem::Version::ANCHORED_VERSION_PATTERN
+
       next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
 
       bundler_version = Regexp.last_match(1)
@@ -34,40 +36,6 @@ m = Module.new do
     end
     bundler_version
   end
-
-  # def cli_arg_version
-  #   return unless invoked_as_script? # don't want to hijack other binstubs
-  #   return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
-
-  #   bundler_version = nil
-  #   update_index = nil
-  #   ARGV.each_with_index do |a, i|
-  #     bundler_version = a if update_index && update_index.succ == i && a =~ Gem::Version::ANCHORED_VERSION_PATTERN
-  #     next unless a =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
-
-  #     bundler_version = Regexp.last_match(1)
-  #     update_index = i
-  #   end
-  #   bundler_version
-  # end
-
-  # def cli_arg_version
-  #   return unless invoked_as_script? && ARGV.first == 'update'
-
-  #   bundler_version = nil
-  #   update_index = nil
-
-  #   ARGV.each_with_index do |arg, i|
-  #     if update_index && update_index.succ == i && arg =~ Gem::Version::ANCHORED_VERSION_PATTERN
-  #       bundler_version = arg
-  #     elsif arg =~ /\A--bundler(?:[= ](#{Gem::Version::VERSION_PATTERN}))?\z/
-  #       bundler_version = Regexp.last_match(1)
-  #       update_index = i
-  #     end
-  #   end
-
-  #   bundler_version
-  # end
 
   def gemfile
     gemfile = ENV.fetch('BUNDLE_GEMFILE', nil)
@@ -128,9 +96,9 @@ m = Module.new do
       return
     end
 
-    warn "Activating bundler (#{bundler_requirement})
-    failed:\n#{gem_error.message}
-    \n\nTo install the version of bundler this project requires, run `gem install bundler -v '#{bundler_requirement}'`"
+    warn "Activating bundler (#{bundler_requirement}) failed:\n#{gem_error.message}
+    \n\nTo install the version of bundler this project requires, run `gem install bundler -v
+    '#{bundler_requirement}'`"
     exit 42
   end
 
