@@ -9,21 +9,13 @@
       <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <%= f.text_field :name, 
-                  placeholder: 'username (will be shown publicly)', 
-                  class: 'form-control' %>
+        <%= f.text_field :name, placeholder: 'username', class: 'form-control' %>
 
-        <%= f.text_field :email,
-                  placeholder: 'email', 
-                  class: 'form-control' %>
+        <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
 
-        <%= f.password_field :password, 
-                            placeholder: 'password', 
-                            class: 'form-control' %>
+        <%= f.password_field :password, placeholder: 'password', class: 'form-control' %>
 
-        <%= f.password_field :password_confirmation, 
-                            placeholder: 'password confirmation', 
-                            class: 'form-control' %>
+        <%= f.password_field :password_confirmation, placeholder: 'password confirmation', class: 'form-control' %>
 
         <%= f.submit "Sign up", class: 'btn sign-up-button' %>
         
