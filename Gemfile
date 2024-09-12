@@ -66,13 +66,12 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'headless'
-  gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
 end
+gem 'factory_bot_rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
