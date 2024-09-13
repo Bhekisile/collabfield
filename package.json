@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.9",
+    "bootstrap-sass": "^3.4.3",
+    "jquery": "^3.7.1",
+    "jquery-ujs": "^1.2.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.1"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  }
+}
