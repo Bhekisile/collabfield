@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function() {
+// Use Turbo event listeners instead of Turbolinks
+document.addEventListener('turbo:load', function() {
   if ($(".single-post-card").length) {
       // set a solid background color style
       if (mode == 1) {
@@ -16,21 +17,18 @@ $(document).on('turbolinks:load', function() {
       }    
   }
 
-
-  $('#feed').on( 'mouseenter', '.single-post-list', function() {
+  $('#feed').on('mouseenter', '.single-post-list', function() {
       $(this).css('border-color', randomColor());    
   });
 
-  $('#feed').on( 'mouseleave', '.single-post-list', function() {
+  $('#feed').on('mouseleave', '.single-post-list', function() {
       $(this).css('border-color', 'rgba(0, 0 , 0, 0.05)');    
   });
-
 });
 
 var colorSet = randomColorSet();
 var mode = Math.floor(Math.random() * 2);
 
-// Randomly returns a color scheme
 function randomColorSet() {
   var colorSet1 = ['#45CCFF', '#49E83E', '#FFD432', '#E84B30', '#B243FF'];
   var colorSet2 = ['#FF6138', '#FFFF9D', '#BEEB9F', '#79BD8F', '#79BD8F'];
@@ -43,7 +41,6 @@ function randomColorSet() {
   return randomSet[Math.floor(Math.random() * randomSet.length )];
 }
 
-// Randomly returns a color from an array of colors
 function randomColor() {
   var color = colorSet[Math.floor(Math.random() * colorSet.length)];
   return color;
