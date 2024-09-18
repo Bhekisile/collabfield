@@ -19,12 +19,21 @@ class PostsController < ApplicationController
 
   private
 
-  # def fetch_posts
-  #   Post.limit(30)
-  # end
+  def receive_posts
+    PostsForBranchService.new({
+                                search: params[:search],
+                                category: params[:category],
+                                branch: params[:action]
+                              }).call
+  end
 
   def posts_for_branch(branch)
     @categories = Category.where(branch:)
-    @posts = Post.paginate(page: params[:page], per_page: 30)
+    @posts = receive_posts.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'posts/posts_pagination_page' }
+    end
   end
 end
