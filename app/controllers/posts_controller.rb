@@ -20,19 +20,11 @@ class PostsController < ApplicationController
   private
 
   def receive_posts
-    branch = params[:action]
-    search = params[:search]
-    category = params[:category]
-
-    if category.blank? && search.blank?
-      Post.by_branch(branch).all
-    elsif category.blank? && search.present?
-      Post.by_branch(branch).search(search)
-    elsif category.present? && search.blank?
-      Post.by_category(branch, category)
-    elsif category.present? && search.present?
-      Post.by_category(branch, category).search(search)
-    end
+    PostsForBranchService.new({
+                                search: params[:search],
+                                category: params[:category],
+                                branch: params[:action]
+                              }).call
   end
 
   def posts_for_branch(branch)
