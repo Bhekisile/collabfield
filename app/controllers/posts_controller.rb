@@ -38,5 +38,10 @@ class PostsController < ApplicationController
   def posts_for_branch(branch)
     @categories = Category.where(branch:)
     @posts = receive_posts.paginate(page: params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'posts/posts_pagination_page' }
+    end
   end
 end
