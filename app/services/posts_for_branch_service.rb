@@ -6,6 +6,7 @@ class PostsForBranchService
   end
 
   # get posts depending on the request
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def call
     if @category.blank? && @search.blank?
       Post.by_branch(@branch).all
@@ -18,3 +19,4 @@ class PostsForBranchService
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity

@@ -1,6 +1,7 @@
 require 'rails_helper'
 require './app/services/posts_for_branch_service'
 
+# rubocop:disable Metrics/BlockLength
 describe PostsForBranchService do
   context '#call' do
     let(:not_included_posts) { create_list(:post, 2) }
@@ -47,3 +48,4 @@ describe PostsForBranchService do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
