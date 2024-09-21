@@ -48,6 +48,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  # rubocop:disable Metrics/BlockLength
   context 'Validations' do
     let(:post) { build(:post) }
 
@@ -95,4 +96,5 @@ RSpec.describe Post, type: :model do
       expect(post).not_to be_valid
     end
   end
+  # rubocop:enable Metrics/BlockLength
 end
