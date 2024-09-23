@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'Contact user', type: :feature do
   let(:user) { create(:user) }
   let(:category) { create(:category, name: 'Arts', branch: 'hobby') }
@@ -41,3 +42,4 @@ RSpec.feature 'Contact user', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
