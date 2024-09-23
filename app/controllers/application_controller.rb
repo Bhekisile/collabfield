@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :redirect_if_not_signed_in, only: [:new]
+  # before_action :redirect_if_not_signed_in, only: [:new]
 
   def redirect_if_not_signed_in
     redirect_to root_path unless user_signed_in?
