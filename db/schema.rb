@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema[7.1].define(version: 20_240_921_074_141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -67,7 +66,6 @@ ActiveRecord::Schema[7.1].define(version: 20_240_921_074_141) do
     t.index ['email'], name: 'index_users_on_email', unique: true
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-  # rubocop:enable Metrics/BlockLength
 
   add_foreign_key 'private_messages', 'users'
 end
