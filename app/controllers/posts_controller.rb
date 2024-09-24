@@ -5,6 +5,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    return unless user_signed_in?
+
+    @message_has_been_sent = conversation_exist?
   end
 
   def new
@@ -36,13 +39,13 @@ class PostsController < ApplicationController
 
   private
 
-  def redirect_if_not_signed_in
-    redirect_to root_path unless user_signed_in?
-  end
+  # def redirect_if_not_signed_in
+  #   redirect_to root_path unless user_signed_in?
+  # end
 
-  def redirect_if_signed_in
-    redirect_to root_path if user_signed_in?
-  end
+  # def redirect_if_signed_in
+  #   redirect_to root_path if user_signed_in?
+  # end
 
   def receive_posts
     PostsForBranchService.new({
@@ -65,5 +68,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content, :title, :category_id)
       .merge(user_id: current_user.id)
+  end
+
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
   end
 end
