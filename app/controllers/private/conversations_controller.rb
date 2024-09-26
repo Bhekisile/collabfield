@@ -13,13 +13,15 @@ class Private::ConversationsController < ApplicationController
                               conversation_id: @conversation.id,
                               body: params[:message_body])
       respond_to do |format|
-        format.js { render partial: 'posts/show/contact_user/message_form/success' }
+        format.js { render partial: 'success', format: [:js] }
+        # format.js { render partial: 'posts/show/contact_user/message_form/success', remote: true }
 
         add_to_conversations unless already_added?
       end
     else
       respond_to do |format|
-        format.js { render partial: 'posts/show/contact_user/message_form/fail' }
+        format.js { render partial: 'fail', formats: [:js] }
+        # format.js { render partial: 'posts/show/contact_user/message_form/fail', remote: true }
       end
     end
   end
@@ -27,9 +29,9 @@ class Private::ConversationsController < ApplicationController
   def close
     @conversation_id = params[:id].to_i
     session[:private_conversations].delete(@conversation_id)
-  
+
     respond_to do |format|
-      format.js
+      format.js remote: true
     end
   end
 

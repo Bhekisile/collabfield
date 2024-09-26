@@ -16,7 +16,7 @@ document.addEventListener('turbo:load', function() {
   hideShowChatWindow();
 });
 
-function positionChatWindows() {
+export function positionChatWindows() {
   var chat_windows_count = $('.conversation-window').length;
   // if a new conversation window was added, 
   // set it as the last visible conversation window

@@ -1,5 +1,8 @@
-console.log("open.js.erb");
+import { positionChatWindows } from './position_and_visibility';
 
+// console.log("open.js.erb");
+
+function openConversation(conversation_id) {
 var conversation = $('body').find("[data-pconversation-id='" + 
                                 "<%= @conversation.id %>" + 
                                 "']");
@@ -28,3 +31,4 @@ $('.conversation-window:nth-of-type(' + chat_windows_count + ')\
 
 // repositions all conversation windows
 positionChatWindows();
+}
