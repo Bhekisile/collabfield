@@ -7,8 +7,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-sass@3.4.3/assets/javascripts/bootstrap.min.js"></script>
     <%= csp_meta_tag %>
-    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= Gon::Base.render_data %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -18,6 +18,9 @@
     <p class="alert"><%= alert %></p>
 
     <%= render 'layouts/navigation' %>
+
     <%= yield %>
+
+    <%= render 'layouts/application/private_conversations_windows' %>
   </body>
 </html>

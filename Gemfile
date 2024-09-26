@@ -86,3 +86,6 @@ gem 'devise'
 
 gem 'bootstrap_form'
 gem 'faker'
+
+gem 'gon'
+gem 'rabl-rails'
