@@ -1,3 +1,4 @@
+// console.log("position_and_visibility.js");
 
 document.addEventListener('turbo:load', function() {
   var chat_windows_count = $('.conversation-window').length;

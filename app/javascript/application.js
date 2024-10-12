@@ -6,14 +6,12 @@
 // import "controllers"
 // require gon
 
-import "./posts/modal"
-import "./posts/style"
 import "jquery"
 import "jquery-ujs"
+import "./posts/modal"
+import "./posts/style"
 import "./toggle_window"
 import "./conversations/position_and_visibility"
-import "./conversations/success"
-import "./conversations/fail"
 import "./conversations/close"
 import { Turbo } from "@hotwired/turbo-rails";
 

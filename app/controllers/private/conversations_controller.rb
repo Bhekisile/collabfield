@@ -13,15 +13,15 @@ class Private::ConversationsController < ApplicationController
                               conversation_id: @conversation.id,
                               body: params[:message_body])
       respond_to do |format|
-        format.js { render partial: 'success', format: [:js] }
-        # format.js { render partial: 'posts/show/contact_user/message_form/success', remote: true }
+        format.js { render partial: 'posts/show/contact_user/message_form/success' }
+        # render partial: 'posts/show/contact_user/message_form/success'
 
         add_to_conversations unless already_added?
       end
     else
       respond_to do |format|
-        format.js { render partial: 'fail', formats: [:js] }
-        # format.js { render partial: 'posts/show/contact_user/message_form/fail', remote: true }
+        format.js { render partial: 'posts/show/contact_user/message_form/fail' }
+        # render partial: 'posts/show/contact_user/message_form/fail'
       end
     end
   end

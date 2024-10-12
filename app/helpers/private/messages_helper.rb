@@ -1,5 +1,3 @@
-require 'shared/messages_helper'
-
 module Private::MessagesHelper
   include Shared::MessagesHelper
 
