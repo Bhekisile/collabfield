@@ -31,7 +31,7 @@ class Private::ConversationsController < ApplicationController
     session[:private_conversations].delete(@conversation_id)
 
     respond_to do |format|
-      format.js remote: true
+      format.js { render partial: 'private/conversations/close' }
     end
   end
 
