@@ -4,9 +4,15 @@
 //= require bootstrap-sprockets
 // require "@hotwired/turbo-rails"
 // import "controllers"
+// require gon
 
-import "./posts/modal"
-import "./posts/style"
 import "jquery"
 import "jquery-ujs"
+import "./posts/modal"
+import "./posts/style"
+import "./toggle_window"
+import "./conversations/position_and_visibility"
+import "./conversations/close"
 import { Turbo } from "@hotwired/turbo-rails";
+
+// console.log("application.js");
