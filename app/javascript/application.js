@@ -16,3 +16,4 @@ import "./conversations/close"
 import { Turbo } from "@hotwired/turbo-rails";
 
 // console.log("application.js");
+import "./channels"
