@@ -49,7 +49,6 @@ RSpec.describe Shared::MessagesHelper, type: :helper do
   end
 end
 
-
 # require 'rails_helper'
 
 # RSpec.describe YourController, type: :controller do
