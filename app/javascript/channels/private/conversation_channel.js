@@ -48,13 +48,13 @@ consumer.subscriptions.create("Private::ConversationChannel", {
         messages_list.scrollTop(height);
     }
   }
-})
 
-// send_message: function(message) {
-//   return this.perform('send_message', {
-//       message: message
-//   });
-// }
+  // send_message: function(message) {
+  //   return this.perform('send_message', {
+  //       message: message
+  //   });
+  // }
+})
 
 $(document).on('submit', '.send-private-message', function(e) {
   e.preventDefault();
