@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class Private::ConversationChannelTest < ActionCable::Channel::TestCase
   # test "subscribes" do
