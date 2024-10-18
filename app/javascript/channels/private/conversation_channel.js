@@ -47,13 +47,13 @@ consumer.subscriptions.create("Private::ConversationChannel", {
         var height = messages_list[0].scrollHeight;
         messages_list.scrollTop(height);
     }
-  }
+  },
 
-  // send_message: function(message) {
-  //   return this.perform('send_message', {
-  //       message: message
-  //   });
-  // }
+  send_message(message) {
+    return this.perform('send_message', {
+        message: message
+    });
+  }
 })
 
 $(document).on('submit', '.send-private-message', function(e) {
