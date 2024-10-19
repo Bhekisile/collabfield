@@ -55,8 +55,8 @@ consumer.subscriptions.create("Private::ConversationChannel", {
     });
   },
 
-  set_as_seen: function(conv_id) {
-    return this.perform('set_as_seen', { conv_id: conv_id });
+  place_as_seen: function(conv_id) {
+    return this.perform('place_as_seen', { conv_id: conv_id });
 }
 })
 
@@ -81,7 +81,7 @@ $(document).on('click', '.conversation-window, .private-conversation', function(
       latest_message.removeClass('unseen');
       $('#menu-pc' + conv_id).removeClass('unseen-conv');
       calculateUnseenConversations();
-      App.private_conversation.set_as_seen(conv_id);
+      App.private_conversation.place_as_seen(conv_id);
   }
 });
 
