@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contacts, only: %i[create update destroy]
+
   namespace :private do
     resources :conversations, only: [:create] do
       member do
