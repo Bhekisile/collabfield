@@ -1,6 +1,6 @@
 <script>
   $('body')
-    .find("[data-pconversation-id='" + "<%= @conversation_id %>" + "']")
+    .find("[data-pconversation-id='" + "<%= j @conversation_id %>" + "']")
     .parent()
     .remove();
   positionChatWindows();

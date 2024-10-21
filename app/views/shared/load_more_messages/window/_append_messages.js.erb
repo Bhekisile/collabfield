@@ -1,11 +1,11 @@
 <script>
-// temporary remove load more messages link
-// so it cannot be clicked if new messages aren't rendered yet
-$('#<%= @id_type %><%= @conversation.id %> .load-more-messages')
+    // temporary remove load more messages link
+    // so it cannot be clicked if new messages aren't rendered yet
+    $('#<%= @id_type %><%= @conversation.id %> .load-more-messages')
     .replaceWith('<span class="load-more-messages"></span>');
-// render previous messages
-$('#<%= @id_type %><%= @conversation.id %> .messages-list ul')
-    .prepend('<%= j render "#{@type}/conversations/messages" %>');
-// after new messages are appended, leave a gap at the top of the scrollbar
-$('#<%= @id_type %><%= @conversation.id %> .messages-list').scrollTop(400);
+    // render previous messages
+    $('#<%= j @id_type %><%= @conversation.id %> .messages-list ul')
+        .prepend('<%= render "#{@type}/messages/add_link_to_messages" %>');
+    // after new messages are appended, leave a gap at the top of the scrollbar
+    $('#<%= @id_type %><%= @conversation.id %> .messages-list').scrollTop(400);
 </script>

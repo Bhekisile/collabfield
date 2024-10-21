@@ -1,7 +1,7 @@
 class Private::MessageBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(*_args)
+  def perform(message, previous_message)
     sender = message.user
     recipient = message.conversation.opposed_user(sender)
 
