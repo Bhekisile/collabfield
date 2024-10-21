@@ -1,6 +1,7 @@
-<div class="panel-heading conversation-heading">
-  <span class="contact-name-notif"><%= @recipient.name %></span>  
-</div> <!-- conversation-heading -->
+<%# <div class="panel-heading conversation-heading"> %>
+  <%# <span class="contact-name-notif"><%= @recipient.name %></span>   %>
+<%# </div> <!-- conversation-heading --> %>
+<%= conv_heading_class(@contact) %>
 
 <!-- Close conversation button -->
 <%= link_to "X", 
@@ -9,3 +10,4 @@
             title: 'Close', 
             remote: true, 
             method: :post %>
+<%= render add_to_contacts_partial_path(@contact) %>
