@@ -29,6 +29,8 @@ class User < ApplicationRecord
            through: :all_received_contact_requests,
            source: :user
 
+  has_many :group_messages, class_name: 'Group::Message'
+  has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
 
   # gets all your contacts
   def all_active_contacts
