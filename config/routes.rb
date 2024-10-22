@@ -38,13 +38,13 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index create]
   end
 
-  namespace :group do 
+  namespace :group do
     resources :conversations do
       member do
         post :close
         post :open
       end
     end
-    resources :messages, only: [:index, :create]
+    resources :messages, only: %i[index create]
   end
 end
