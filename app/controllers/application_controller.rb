@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :opened_conversations_windows
   before_action :all_ordered_conversations
+  before_action :set_user_data
   # before_action :redirect_if_not_signed_in, only: [:new]
 
   def redirect_if_not_signed_in
@@ -29,5 +30,18 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
 
     @all_conversations = OrderConversationsService.new({ user: current_user }).call
+  end
+
+  private
+
+  def set_user_data
+    if user_signed_in?
+      gon.group_conversations = current_user.group_conversations.ids
+      gon.user_id = current_user.id
+      cookies[:user_id] = current_user.id if current_user.present?
+      cookies[:group_conversations] = current_user.group_conversations.ids
+    else
+      gon.group_conversations = []
+    end
   end
 end
