@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :group_conversation, class: 'Group::Conversation' do
-    association :recipient, factory: :users
-    association :sender, factory: :group_conversation_users
+    association :users, factory: :user
 
     factory :group_conversation_with_messages do
       transient do

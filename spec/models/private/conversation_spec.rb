@@ -9,6 +9,15 @@ RSpec.describe Private::Conversation, type: :model do
       conversation = Private::Conversation.between_users(user1.id, user2.id)
       expect(conversation.count).to eq 1
     end
+
+    it "gets all user's conversations" do
+      create_list(:private_conversation, 5)
+      user = create(:user)
+      create_list(:private_conversation, 2, recipient_id: user.id)
+      create_list(:private_conversation, 2, sender_id: user.id)
+      conversations = Private::Conversation.all_by_user(user.id)
+      expect(conversations.count).to eq 4
+    end
   end
 
   context 'Methods' do
@@ -20,17 +29,6 @@ RSpec.describe Private::Conversation, type: :model do
                             sender_id: user2.id)
       opposed_user = conversation.opposed_user(user1)
       expect(opposed_user).to eq user2
-    end
-  end
-
-  context 'Scopes' do
-    it "gets all user's conversations" do
-      create_list(:private_conversation, 5)
-      user = create(:user)
-      create_list(:private_conversation, 2, recipient_id: user.id)
-      create_list(:private_conversation, 2, sender_id: user.id)
-      conversations = Private::Conversation.all_by_user(user.id)
-      expect(conversations.count).to eq 4
     end
   end
 end
