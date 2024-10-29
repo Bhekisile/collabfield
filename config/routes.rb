@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -26,12 +27,26 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :contacts, only: %i[create update destroy]
+
   namespace :private do
     resources :conversations, only: [:create] do
       member do
         post :close
+        post :open
+      end
+    end
+    resources :messages, only: %i[index create]
+  end
+
+  namespace :group do
+    resources :conversations do
+      member do
+        post :close
+        post :open
       end
     end
     resources :messages, only: %i[index create]
   end
 end
+# rubocop:enable Metrics/BlockLength

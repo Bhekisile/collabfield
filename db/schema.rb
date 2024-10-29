@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 # rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema[7.1].define(version: 20_240_921_074_141) do
+ActiveRecord::Schema[7.1].define(version: 20_241_021_145_810) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -20,6 +20,34 @@ ActiveRecord::Schema[7.1].define(version: 20_240_921_074_141) do
     t.string 'branch'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+  end
+
+  create_table 'contacts', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'contact_id'
+    t.boolean 'accepted', default: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['contact_id'], name: 'index_contacts_on_contact_id'
+    t.index ['user_id'], name: 'index_contacts_on_user_id'
+  end
+
+  create_table 'group_conversations', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'group_conversations_users', id: false, force: :cascade do |t|
+    t.integer 'conversation_id'
+    t.integer 'user_id'
+    t.index ['conversation_id'], name: 'index_group_conversations_users_on_conversation_id'
+    t.index ['user_id'], name: 'index_group_conversations_users_on_user_id'
+  end
+
+  create_table 'group_messages', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.text 'content'
   end
 
   create_table 'posts', force: :cascade do |t|

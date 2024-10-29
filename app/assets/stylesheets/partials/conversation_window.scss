@@ -158,3 +158,145 @@ textarea {
 .send-message {
   display: none;
 }
+
+.add-user-to-contacts {
+  display: none;
+  i {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    color: white;
+  }
+}
+
+.add-user-to-contacts-message {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.add-people-to-chat, .contact-request-sent {
+  display: none;
+  margin: 0;
+  padding: 0;
+  div {
+    width: 40px;
+    height: 40px;
+    display: table;
+    i {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}
+
+.add-people-to-chat {
+  i {
+    opacity: 0.8;
+    transition: opacity 0.15s;
+  }
+  &:hover i {
+    opacity: 1;
+  }
+}
+
+.contact-request-status {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 400px;
+  text-align: center;
+  background-color: white;
+  z-index: 2;
+  .pending-request {
+    padding: 10px 0;
+  }
+  .request-response {
+    padding: 10px 0;
+  }
+  .accept-request, .decline-request {
+    a {
+      padding: 10px 0;
+    }
+  }
+  .contact-name {
+    padding: 10px 0 0 0;
+  }
+  .accept-request {
+    margin-right: 10px;
+    a {
+      color: green;
+    }
+  }
+  .decline-request {
+    a {
+      font-weight: bold;
+      color: red;
+    }
+  }
+}
+
+.select-users-to-chat {
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  display: none;
+  height: 45px;
+  width: 100%;
+  z-index: 2;
+}
+
+.select-users-dropdown, .select-users-button {
+  border: none;
+  display: inline-block;
+  margin: 0;
+  height: 35px;
+}
+
+.select-users-dropdown {
+  width: 55%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.select-users-button {
+  width: 40%;
+  background-color: $navbarColor;
+  color: white;
+  border: 1px solid $navbarColor;
+}
+
+.select-users-to-chat {
+  padding: 5px 0 5px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  display: none;
+  height: 45px;
+  width: 100%;
+  z-index: 2;
+}
+
+.select-users-dropdown, .select-users-button {
+  border: none;
+  display: inline-block;
+  margin: 0;
+  height: 35px;
+}
+
+.select-users-dropdown {
+  width: 55%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.select-users-button {
+  width: 40%;
+  background-color: $navbarColor;
+  color: white;
+  border: 1px solid $navbarColor;
+}
