@@ -27,7 +27,7 @@ RSpec.describe Group::ConversationsHelper, type: :helper do
   end
 
   context '#load_group_messages_partial_path' do
-    let(:conversation) { create(:group_conversation) }
+    let(:conversation) { create(:group_conversation).id }
     it "returns load_messages partial's path" do
       create_list(:group_message, 2, conversation_id: conversation.id)
       expect(helper.load_group_messages_partial_path(conversation)).to eq(
