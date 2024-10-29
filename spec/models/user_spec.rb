@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  # rubocop:disable Metrics/BlockLength
   context 'Associations' do
     it 'has_many posts' do
       association = described_class.reflect_on_association(:posts)
@@ -60,6 +61,7 @@ RSpec.describe User, type: :model do
       expect(association.options[:class_name]).to eq 'Group::Conversation'
     end
   end
+  # rubocop:enable Metrics/BlockLength
 
   context 'Methods' do
     let(:user) { build(:user) }

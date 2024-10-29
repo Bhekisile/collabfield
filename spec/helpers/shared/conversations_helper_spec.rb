@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Shared::ConversationsHelper, type: :helper do
+  # rubocop:disable Metrics BlockLength
   context '#private_conv_seen_status' do
     it 'returns an empty string' do
       current_user = create(:user)
@@ -40,3 +41,4 @@ RSpec.describe Shared::ConversationsHelper, type: :helper do
     end
   end
 end
+# rubocop:enable Metrics BlockLength

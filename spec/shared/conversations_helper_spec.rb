@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics BlockLength
 RSpec.describe Shared::ConversationsHelper, type: :helper do
   context '#private_conv_seen_status' do
     it 'returns an empty string' do
@@ -40,3 +41,4 @@ RSpec.describe Shared::ConversationsHelper, type: :helper do
     end
   end
 end
+# rubocop:enable Metrics BlockLength

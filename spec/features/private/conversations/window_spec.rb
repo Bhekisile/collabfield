@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.feature 'window', type: :feature do
   let(:user) { create(:user) }
   let(:conversation) { create(:private_conversation, sender_id: user.id) }
@@ -39,3 +40,4 @@ RSpec.feature 'window', type: :feature do
     expect(page).not_to have_selector('.conversation-window .messages-list')
   end
 end
+# rubocop:enable Metrics/BlockLength

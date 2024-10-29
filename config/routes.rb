@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -48,3 +49,4 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index create]
   end
 end
+# rubocop:enable Metrics/BlockLength
