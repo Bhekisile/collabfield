@@ -1,15 +1,12 @@
 module Group::ConversationsHelper
-  def contacts_except_recipient(recipient)
+  def add_people_to_group_conv_list(conversation)
     contacts = current_user.all_active_contacts
-    # return all contacts, except the opposite user of the chat
-    contacts.delete_if { |contact| contact.id == recipient.id }
-  end
-
-  def create_group_conv_partial_path(_contact)
-    if recipient_is_contact?
-      'private/conversations/conversation/heading/create_group_conversation'
-    else
-      'shared/empty_partial'
+    users_in_conv = conversation.users
+    add_people_to_conv_list = []
+    contacts.each do |contact|
+      # if the contact is already in the conversation, remove it from the list
+      add_people_to_conv_list << contact unless users_in_conv.include?(contact)
     end
+    add_people_to_conv_list
   end
 end
