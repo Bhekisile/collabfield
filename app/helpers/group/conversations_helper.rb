@@ -5,7 +5,7 @@ module Group::ConversationsHelper
     contacts.delete_if { |contact| contact.id == recipient.id }
   end
 
-  def create_group_conv_partial_path(contact)
+  def create_group_conv_partial_path(_contact)
     if recipient_is_contact?
       'private/conversations/conversation/heading/create_group_conversation'
     else
