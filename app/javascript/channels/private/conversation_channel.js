@@ -1,4 +1,5 @@
 import consumer from "../consumer"
+import calculateUnseenConversations from "../../conversations/conversation";
 
 consumer.subscriptions.create("Private::ConversationChannel", {
   connected() {

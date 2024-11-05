@@ -19,7 +19,7 @@ document.addEventListener('turbo:load', function() {
 
 });
 
-function calculateUnseenConversations() {
+export default function calculateUnseenConversations() {
   var unseen_conv_length = $('#conversations-menu').find('.unseen-conv').length;
   if (unseen_conv_length) {
       $('#unseen-conversations').css('visibility', 'visible');
