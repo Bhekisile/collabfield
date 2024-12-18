@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :opened_conversations_windows
   before_action :all_ordered_conversations
   before_action :set_user_data
-  before_action :redirect_if_not_signed_in
+  # before_action :redirect_if_not_signed_in
 
   def redirect_if_not_signed_in
     redirect_to root_path unless user_signed_in?
