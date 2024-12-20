@@ -25,7 +25,7 @@
 .interested {
   text-align: center;
   a {
-    background-color: #323738; /* Replace $navbarColor with a valid color value */
+    background-color: $navbarColor;
     padding: 10px;
     color: white;
     border-radius: 10px;
