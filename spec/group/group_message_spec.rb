@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Group::Message, type: :model do
+  # let(:conversation) { build(:group_conversation) }
   let(:message) { build(:group_message) }
 
   context 'Associations' do

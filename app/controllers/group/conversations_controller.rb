@@ -6,6 +6,14 @@ class Group::ConversationsController < ApplicationController
     respond_to(&:js)
   end
 
+  def open
+    @conversation = Group::Conversation.find(params[:id])
+    add_to_conversations unless already_added?
+    respond_to do |format|
+      format.js { render partial: 'group/conversations/open' }
+    end
+  end
+
   private
 
   def add_to_conversations
