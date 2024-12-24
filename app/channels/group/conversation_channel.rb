@@ -11,7 +11,7 @@ class Group::ConversationChannel < ApplicationCable::Channel
     stop_all_streams
   end
 
-  def set_as_seen(data)
+  def place_as_seen(data)
     # find a conversation and set its last message as seen
     conversation = Group::Conversation.find(data['conv_id'])
     last_message = conversation.messages.last
