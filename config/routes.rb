@@ -48,5 +48,10 @@ Rails.application.routes.draw do
     end
     resources :messages, only: %i[index create]
   end
+
+  get 'messenger', to: 'messengers#index'
+  get 'fetch_private_conversation', to: 'messengers#fetch_private_conversation'
+  get 'fetch_group_conversation', to: 'messengers#fetch_group_conversation'
+  get 'open_messenger', to: 'messengers#open_messenger'
 end
 # rubocop:enable Metrics/BlockLength
