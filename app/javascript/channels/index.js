@@ -2,3 +2,4 @@
 import "./private/conversation_channel"
 import "./group/conversation_channel"
 import "./shared/conversation"
+import "./notification_channel"
